@@ -1,0 +1,9 @@
+**/**/core.*
+**/fuzz_dir/**
+**/fuzz_out/**
+**/build/**
+**/instrumented_build/**
+**/input_seeds/**
+**/sut_out/**
+
+**/xpdf-3.02

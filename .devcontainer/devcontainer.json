@@ -1,0 +1,20 @@
+{
+    "dockerFile": "./latest-debian.dockerfile",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root",
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.makefile-tools",
+                "ms-vsliveshare.vsliveshare",
+                "llvm-vs-code-extensions.vscode-mlir",
+                "llvm-vs-code-extensions.lldb-dap",
+                "ms-vscode.hexeditor",
+                "iliazeus.vscode-ansi"
+            ]
+        }
+    }
+}
