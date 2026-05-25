@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+mkdir build
+cd build
+
 # Step 1: Preprocess our source file (using clang's preprocessor)
-clang -E main.c -o main.i
+clang -E ../main.c -o main.i
 
 # Step 2: Compile the preprocessed file into LLVM IR
 clang -S -emit-llvm -O0 main.i -o main.ll

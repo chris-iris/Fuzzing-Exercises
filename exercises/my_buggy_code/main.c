@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 
 typedef struct User {
@@ -35,6 +36,11 @@ int main(int argc, char** argv) {
     while (!exit) {
 
         int bytes_read = read(fd, buffer + (buffer_size - buff_step), buff_step);
+
+        if (bytes_read < 0 && errno != EAGAIN) {
+            printf("Something bad really happened\n");
+            return 1;
+        }
 
         // Read enough bytes
         if (bytes_read < buff_step) {
@@ -82,7 +88,9 @@ int main(int argc, char** argv) {
 
     char password[17];
 
+    // This is buggy
     strncpy(logged_user.username, buffer, separator_position);
+
     strncpy(password, buffer + (separator_position + 1), 16);
 
     password[16] = 0;
